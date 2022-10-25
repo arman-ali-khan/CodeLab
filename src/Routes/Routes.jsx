@@ -13,7 +13,7 @@ import Root from "../Layout/Root";
 export const router = createBrowserRouter([
     {path: '/', element:<Root/>, errorElement: <ErrorPage/>, children:[
         {path: '/', element:<Home/>},
-        {path:'/courses', element:<Courses/>},
+        {path:'/courses', element:<Courses/>, loader: ()=> fetch('http://localhost:5000/courses')},
         {path:'/checkout', element:<Checkout/>},
         {path:'/faq', element:<FAQ />},
         {path:'/blog', element:<Blog/>},
