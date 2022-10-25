@@ -1,25 +1,52 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BsFacebook } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../../Context/AuthContext';
 
 const Login = () => {
+    const {logIn,loading} = useContext(UserContext)
+    if(loading){
+        return <div className='flex justify-center my-4'>
+            <div>
+            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div><p>Loading...</p>
+            </div>
+        </div>
+    }
+    const navigate = useNavigate()
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log( email, password);
+        logIn(email,password)
+        .then(result=>{
+            const user = result.user;
+            console.log(user);
+            navigate('/')
+        })
+        .catch(error=>{
+            console.error('Error:', error);
+        })
+    }
+
     return (
         <div className='flex justify-center'>
           <div className="w-full max-w-md p-8 space-y-3 shadow-xl my-12 rounded-xl dark:bg-gray-900 dark:text-gray-100">
 	<h1 className="text-2xl font-bold text-center">Login</h1>
-	<form novalidate="" action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
+	<form noValidate="" onSubmit={handleSubmit} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
 		<div className="space-y-1 text-sm">
-			<label for="email" className="block dark:text-gray-400">Email</label>
+			<label htmlFor="email" className="block dark:text-gray-400">Email</label>
 			<input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
 		</div>
 		<div className="space-y-1 text-sm">
-			<label for="password" className="block dark:text-gray-400">Password</label>
+			<label htmlFor="password" className="block dark:text-gray-400">Password</label>
 			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
 			<div className="flex justify-end text-xs dark:text-gray-400">
 				<Link to="/reset">Forgot Password?</Link>
 			</div>
 		</div>
-		<button type='submit' className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign in</button>
+		<button type='submit' className="block btn btn-warning w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign in</button>
 	</form>
 	<div className="flex items-center pt-4 space-x-1">
 		<div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>

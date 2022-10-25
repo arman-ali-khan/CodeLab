@@ -1,10 +1,41 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { HiMoon, HiSun, HiUserCircle } from "react-icons/hi";
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.css';
+import { UserContext } from '../Context/AuthContext';
 const Navbar = () => {
+    const {user,logOut} = useContext(UserContext)
+    const [night, setNight] = useState(false)
+
+    const handleLogout =()=>{
+        logOut()
+        .then(()=>{
+             toast.error('Logout Succeed', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                });
+           
+        })
+        .catch(error=>{
+            console.error("error", error);
+        })
+    }
+
+
+    const handleNightMode = ()=>{
+        setNight(!night)
+    }
     return (
         <div className="navbar bg-base-100 shadow-md">
+            <ToastContainer/>
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -26,13 +57,33 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <p className='text-4xl'><HiUserCircle /></p>
-    <Link to='/login' className="btn btn-warning">Login</Link>
-    <Link to='/register' className="btn btn-warning">Register</Link>
-    <p className='text-4xl'>
-    <HiMoon/>
-    <HiSun/>
+    {
+        user? 
+        <span className='flex justify-center items-center' title={user.displayName}>
+        {user.photoURL ? 
+            <img className='w-10 h-10 rounded-full' src={user.photoURL} alt=''/> 
+            :
+            <p className='text-4xl'><HiUserCircle /></p>}  
+        <button onClick={handleLogout} className="btn btn-warning mx-2">Logout</button>
+        </span >
+            : 
+        <>
+            <Link to='/login' className="btn btn-warning mx-2">Login</Link>
+            <Link to='/register' className="btn btn-warning mx-2">Register</Link>
+        </>
+    }
+    
+   <button onClick={handleNightMode} >
+   <p className='text-4xl'>
+    {
+        night ? 
+        <HiMoon/> 
+        :
+        <HiSun/>
+    }
     </p>
+   </button>
+    
   </div>
 </div>
     );
