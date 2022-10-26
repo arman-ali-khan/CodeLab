@@ -14,7 +14,6 @@ const AuthContext = ({children}) => {
     const facebookProvider = new FacebookAuthProvider();
 
     const createUser = (email,password,profile)=>{
-        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const infoUpdate = (profile)=>{
@@ -61,7 +60,7 @@ const AuthContext = ({children}) => {
         return ()=> unsubscribe()
     },[])
 
-    const userInfo = {user,createUser,infoUpdate,logOut,logIn,googleLogin,loading,facebookLogin,githubLogin}
+    const userInfo = {user,createUser,setLoading,infoUpdate,logOut,logIn,googleLogin,loading,facebookLogin,githubLogin}
     return (
         <UserContext.Provider value={userInfo}>
             {children}

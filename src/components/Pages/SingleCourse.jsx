@@ -5,7 +5,7 @@ const SingleCourse = ({cource}) => {
     return (
         <div>
            <div className=" md:max-w-xs rounded-md border">
-	<img src={cource.picture} alt="" className="object-cover object-center w-full rounded-t-md h-auto " />
+	<img src={cource.picture} alt="" className="object-cover object-center h-60 w-full rounded-t-md" />
 	<div className="flex flex-col justify-between px-5 py-2 space-y-8">
 		<div className="space-y-2">
 			<h2 className="text-3xl  font-semibold tracking-wide">{cource.name}</h2>

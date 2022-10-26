@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { BsFacebook } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../Context/AuthContext';
 
 const Register = () => {
@@ -16,7 +16,7 @@ const Register = () => {
     }
 
 	const [error, setError] = useState();
-
+    const navigate = useNavigate()
 
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -31,8 +31,10 @@ const Register = () => {
             const user = result.user;
             console.log(user);
             handleUserInfo(name, url)
+            navigate('/')
         })
         .catch(error=>{
+            
             console.error('Error:', error);
             setError(error.message)
         })

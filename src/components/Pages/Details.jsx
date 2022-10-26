@@ -2,6 +2,7 @@ import React from 'react';
 import { HiOutlineDownload } from 'react-icons/hi';
 import { Link, useLoaderData } from 'react-router-dom';
 import Pdf from "react-to-pdf";
+import Sidebar from './Sidebar';
 
 
 
@@ -15,7 +16,10 @@ const Details = () => {
     <div className='md:flex justify-center mx-auto w-full'>
             <div className='w-full md:w-1/4 flex md:h-screen items-center'>
             <ul className="menu mx-auto mt-4 bg-base-100 text-center sm:w-56 p-2 rounded-box">
-  <li className='w-full flex justify-center'><Link to='/checkout' className='text-center btn btn-success'>Get Premium Access</Link></li>
+  <li className='w-full flex justify-center'>
+      <Sidebar />
+    
+    <Link to='/checkout' className='text-center btn btn-success'>Get Premium Access</Link></li>
 </ul>
             </div>
             <div className="md:w-3/4 flex flex-col p-6 mx-auto divide-y rounded-md border divide-gray-700">

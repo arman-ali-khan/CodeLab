@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../Context/AuthContext';
 
 const Login = () => {
-    const {logIn,loading,googleLogin,githubLogin,facebookLogin} = useContext(UserContext)
+    const {logIn,loading,setLoading,googleLogin,githubLogin,facebookLogin} = useContext(UserContext)
 
     if(loading){
 		return <div className='flex justify-center my-4'>
@@ -37,6 +37,7 @@ const Login = () => {
         })
         .catch(error=>{
             console.error('Error:', error);
+            setLoading(false)
 			setError(error.message)
         })
     }

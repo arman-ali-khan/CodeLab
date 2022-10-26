@@ -10,13 +10,23 @@ import Details from "../components/Pages/Details";
 import ErrorPage from "../components/Pages/ErrorPage";
 import FAQ from "../components/Pages/FAQ";
 import Pdf from "../components/Pages/Pdf";
+import Sidebar from "../components/Pages/Sidebar";
 import Root from "../Layout/Root";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {path: '/', element:<Root/>, errorElement: <ErrorPage/>, children:[
         {path: '/', element:<Home/>},
-        {path:'/courses', element:<Courses/>, loader: ()=> fetch('http://localhost:5000/courses')},
+        {
+            path:'/courses', 
+            element:<Courses/>, 
+            loader: ()=> fetch('https://assignment-server-for-vercel.vercel.app/courses')
+        },
+        {
+            path:'/sidebar', 
+            element:<Sidebar/>, 
+            loader: ()=> fetch('https://assignment-server-for-vercel.vercel.app/courses')
+        },
         {path:'/checkout', element:<PrivateRoute><Checkout/></PrivateRoute>},
         {path:'/faq', element:<FAQ />},
         {path:'/blog', element:<Blog/>},
@@ -24,13 +34,13 @@ export const router = createBrowserRouter([
             path:'/details/:id', 
             element:<Details/>,
             loader: ({params})=>{
-            return fetch(`http://localhost:5000/courses/${params.id}`)
+            return fetch(`https://assignment-server-for-vercel.vercel.app/courses/${params.id}`)
         }},
         {path:'/login', element:<Login/>},
         {path:'/register', element:<Register/>},
         {path:'/pdf', element:<Pdf/>,
         loader: ({params})=>{
-           return fetch(`http://localhost:5000/courses/${params.id}`)
+           return fetch(`https://assignment-server-for-vercel.vercel.app/courses/${params.id}`)
        }},
         {path:'/reset', element:<ResetPassword/>},
     ]}
