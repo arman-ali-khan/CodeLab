@@ -30,6 +30,14 @@ It supports authentication using passwords, phone numbers, popular federated ide
 </p>
 				</div>
 			</details>
+			<details>
+				<summary className="py-2 outline-none cursor-pointer focus:underline">How does the private route work?</summary>
+				<div className="px-4 pb-4 space-y-2">
+					<p>The react private route component renders child components (children) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property.
+<br /><br />
+The current logged in user (authUser) is retrieved from Redux state with a call to the useSelector() hook. Redux is used in this example however it is not required to implement a Private Route component in React Router 6. You could use a different state management library or any approach you prefer to get the logged in status of the user.</p>
+				</div>
+			</details>
 			
 		</div>
 	</div>
