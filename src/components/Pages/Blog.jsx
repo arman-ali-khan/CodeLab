@@ -17,6 +17,19 @@ An example of a cross-origin request: the front-end JavaScript code served from 
 For security reasons, browsers restrict cross-origin HTTP requests initiated from scripts. For example, XMLHttpRequest and the Fetch API follow the same-origin policy. This means that a web application using those APIs can only request resources from the same origin the application was loaded from unless the response from other origins includes the right CORS headers.</p>
 				</div>
 			</details>
+			<details>
+				<summary className="py-2 outline-none cursor-pointer focus:underline">Why are you using firebase? What other options do you have to implement authentication?</summary>
+				<div className="px-4 pb-4">
+					<p>
+                        <p className='text-2xl'>Firebase main benefits</p> <br />
+                        It’s easy to start a project with Firebase or add a Firebase to your project. It allows real-time database connection, which means multiple users can see the changes in the data when the data gets created or edited. Data transmission is handled with web sockets so you don’t have to send requests to get new data, you only need to subscribe once.
+The same applies for file storage. Quick setup authentication via the major providers (Google, Twitter, Facebook, GitHub). Https by default - secure http traffic without setting up certificates. Any static html/javascript content can be hosted.<br /><br />
+<p className='text-2xl'> What other options do we have to implement authentication?</p> <br />
+It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.
+
+</p>
+				</div>
+			</details>
 			
 		</div>
 	</div>
