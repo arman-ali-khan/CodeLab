@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { BsFacebook } from "react-icons/bs";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../Context/AuthContext';
 
 const Login = () => {
     const {logIn,loading,googleLogin,githubLogin,facebookLogin} = useContext(UserContext)
-	
+
     if(loading){
 		return <div className='flex justify-center my-4'>
             <div>
@@ -13,8 +13,15 @@ const Login = () => {
             </div>
         </div>
     }
+
+    
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
 	const [error, setError] = useState();
+   
+
+    // onsubmit login
     const handleSubmit = (event)=>{
         event.preventDefault();
         const form = event.target;
@@ -23,10 +30,10 @@ const Login = () => {
         console.log( email, password);
         logIn(email,password)
         .then(result=>{
-            const user = result.user;
+            const user = result?.user;
+            navigate(from, {replace: true})
             console.log(user);
 			setError('')
-            navigate('/')
         })
         .catch(error=>{
             console.error('Error:', error);
@@ -34,7 +41,7 @@ const Login = () => {
         })
     }
 
-
+    //Google Login
     const handleGoogleLogin = () =>{
         googleLogin()
         .then(result=>{
@@ -47,7 +54,7 @@ const Login = () => {
         })
     }
 
-
+    //Facebook login
     const handleFacebookLogin = () =>{
         facebookLogin()
         .then(result=>{
@@ -60,7 +67,7 @@ const Login = () => {
         })
     }
 
-
+    // Github login
     const handleGithubLogin = () =>{
         githubLogin()
         .then(result=>{

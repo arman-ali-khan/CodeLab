@@ -14,13 +14,16 @@ const AuthContext = ({children}) => {
     const facebookProvider = new FacebookAuthProvider();
 
     const createUser = (email,password,profile)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const infoUpdate = (profile)=>{
+        setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
 
     const logIn = (email, password) =>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 

@@ -17,7 +17,7 @@ const Courses = () => {
                 {
                     courses.map(cource=> <SingleCourceList key={cource.index} cource={cource}/>)
                 }
-                 <li className='my-2'><Link className='text-center btn-success container mx-auto flex justify-center' to='/'>Get Premium Access</Link></li>
+                 <li className='my-2'><Link className='text-center btn-success container mx-auto flex justify-center' to='/checkout'>Get Premium Access</Link></li>
                 </ul>
             </div>
             <div className='md:3/4'>
