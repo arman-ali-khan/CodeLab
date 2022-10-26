@@ -45,9 +45,20 @@ const Navbar = () => {
       <li><Link to='/courses'>Courses</Link></li>
       <li><Link to='/blog'>Blog</Link></li>
       <li><Link to='/faq'>FAQ</Link></li>
+      {
+        user? 
+        <span>
+        </span >
+            : 
+        <>
+            <Link to='/login' className="btn flex sm:hidden mb-2 btn-warning mx-2">Login</Link>
+            <Link to='/register' className="btn flex sm:hidden btn-warning mx-2">Register</Link>
+        </>
+    }
       </ul>
+      
     </div>
-    <Link to='/' className="btn btn-ghost normal-case text-xl">Programming Language</Link>
+    <Link to='/' className="btn btn-ghost normal-case text-xl">Learn</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
@@ -68,8 +79,8 @@ const Navbar = () => {
         </span >
             : 
         <>
-            <Link to='/login' className="btn btn-warning mx-2">Login</Link>
-            <Link to='/register' className="btn btn-warning mx-2">Register</Link>
+            <Link to='/login' className="btn hidden sm:flex btn-warning mx-2">Login</Link>
+            <Link to='/register' className="btn hidden sm:flex btn-warning mx-2">Register</Link>
         </>
     }
     

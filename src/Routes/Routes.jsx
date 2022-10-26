@@ -9,6 +9,7 @@ import Courses from "../components/Pages/Courses";
 import Details from "../components/Pages/Details";
 import ErrorPage from "../components/Pages/ErrorPage";
 import FAQ from "../components/Pages/FAQ";
+import Pdf from "../components/Pages/Pdf";
 import Root from "../Layout/Root";
 
 export const router = createBrowserRouter([
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
         }},
         {path:'/login', element:<Login/>},
         {path:'/register', element:<Register/>},
+        {path:'/pdf', element:<Pdf/>,
+        loader: ({params})=>{
+           return fetch(`http://localhost:5000/courses/${params.id}`)
+       }},
         {path:'/reset', element:<ResetPassword/>},
     ]}
 ])

@@ -6,7 +6,7 @@ import app from '../firebase/firebase.init';
 const auth = getAuth(app)
 export const UserContext = createContext()
 const AuthContext = ({children}) => {
-    const [user, setUser] = useState({arman: 'Habijabi'})
+    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
 
     const googleProvider = new GoogleAuthProvider();
@@ -14,7 +14,6 @@ const AuthContext = ({children}) => {
     const facebookProvider = new FacebookAuthProvider();
 
     const createUser = (email,password,profile)=>{
-        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const infoUpdate = (profile)=>{
@@ -22,7 +21,6 @@ const AuthContext = ({children}) => {
     }
 
     const logIn = (email, password) =>{
-        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 

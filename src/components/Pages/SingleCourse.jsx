@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const SingleCourse = ({cource}) => {
     return (
         <div>
-           <div className=" md:max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
-	<img src={cource.picture} alt="" className="object-cover object-center w-full rounded-t-md h-60 dark:bg-gray-500" />
+           <div className=" md:max-w-xs rounded-md border">
+	<img src={cource.picture} alt="" className="object-cover object-center w-full rounded-t-md h-auto " />
 	<div className="flex flex-col justify-between px-5 py-2 space-y-8">
 		<div className="space-y-2">
 			<h2 className="text-3xl  font-semibold tracking-wide">{cource.name}</h2>

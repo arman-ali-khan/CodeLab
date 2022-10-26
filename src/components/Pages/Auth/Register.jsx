@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BsFacebook } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../Context/AuthContext';
@@ -14,6 +14,9 @@ const Register = () => {
             </div>
         </div>
     }
+
+	const [error, setError] = useState();
+
 
     const handleSubmit = (event)=>{
         event.preventDefault();
@@ -31,6 +34,7 @@ const Register = () => {
         })
         .catch(error=>{
             console.error('Error:', error);
+            setError(error.message)
         })
     }
 
@@ -85,7 +89,7 @@ const Register = () => {
 
     return (
         <div className='flex justify-center'>
-        <div className="w-full max-w-md p-8 space-y-3 shadow-xl my-12 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+        <div className="w-full max-w-md p-8 space-y-3 border shadow-sm my-12 rounded-xl dark:bg-gray-900 dark:text-gray-100">
   <h1 className="text-2xl font-bold text-center">Register</h1>
   <form noValidate="" onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
       <div className="space-y-1 text-sm">
@@ -98,11 +102,12 @@ const Register = () => {
       </div>
       <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block dark:text-gray-400">Email</label>
-          <input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+          <input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"  required/>
       </div>
       <div className="space-y-1 text-sm">
           <label htmlFor="password" className="block dark:text-gray-400">Password</label>
-          <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+          <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
+          <p className='text-error'>{error}</p>
       </div>
       <button type='submit' className="block btn-warning btn w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign UP</button>
   </form>
