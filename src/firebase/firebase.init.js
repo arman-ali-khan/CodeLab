@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase configuration is hidden via the vite environment variable
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_APP_apiKey,
   authDomain: import.meta.env.VITE_APP_authDomain,

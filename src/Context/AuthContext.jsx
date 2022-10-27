@@ -14,42 +14,46 @@ const AuthContext = ({children}) => {
     const githubProvider = new GithubAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
 
+    // user create with email
     const createUser = (email,password,profile)=>{
         return createUserWithEmailAndPassword(auth, email, password)
     }
+    // name and photourl update
     const infoUpdate = (profile)=>{
         setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
-
+    
+    //user login
     const logIn = (email, password) =>{
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
+    // google login
     const googleLogin = () =>{
         setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
-
+    // facebook login
     const facebookLogin = () =>{
         setLoading(true)
         return signInWithPopup(auth, facebookProvider)
     }
 
-
+    // github login
     const githubLogin = () =>{
         setLoading(true)
         return signInWithPopup(auth, githubProvider)
     }
 
-
+    //password reset
     const passwordReset = (email)=>{
         return sendPasswordResetEmail(auth, email)
     }
 
-
+    // logout
     const logOut = ()=>{
         setLoading(true)
         return signOut(auth)
