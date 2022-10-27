@@ -6,14 +6,6 @@ import { UserContext } from '../../../Context/AuthContext';
 const Login = () => {
     const {logIn,loading,setLoading,googleLogin,githubLogin,facebookLogin} = useContext(UserContext)
 
-    if(loading){
-		return <div className='flex justify-center my-4'>
-            <div>
-            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin "></div><p>Loading...</p>
-            </div>
-        </div>
-    }
-
     
     const navigate = useNavigate()
     const location = useLocation()

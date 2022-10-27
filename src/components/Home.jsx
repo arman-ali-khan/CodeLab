@@ -13,8 +13,10 @@ const Home = () => {
         <Lottie animationData={programming} loop={false} />
 		</div>
 		<div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-			<h1 className="text-5xl font-bold leading-none sm:text-6xl">Learn
-				<span className="dark:text-violet-400"> from</span> Pro Progeammer
+			<h1 className="text-5xl font-bold leading-none sm:text-6xl">
+                  Learn Web development
+                  to get a job
+                
 			</h1>
 			<p className="mt-6 mb-8 text-lg sm:mb-12">Dictum aliquam porta in condimentum ac integer
 				<br className="hidden md:inline lg:hidden"/>turpis pulvinar, est scelerisque ligula sem

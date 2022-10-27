@@ -27,7 +27,6 @@ export const router = createBrowserRouter([
             element:<Sidebar/>, 
             loader: ()=> fetch('https://assignment-server-for-vercel.vercel.app/courses')
         },
-        {path:'/checkout', element:<PrivateRoute><Checkout/></PrivateRoute>},
         {path:'/faq', element:<FAQ />},
         {path:'/blog', element:<Blog/>},
         {
@@ -42,6 +41,14 @@ export const router = createBrowserRouter([
         loader: ({params})=>{
            return fetch(`https://assignment-server-for-vercel.vercel.app/courses/${params.id}`)
        }},
+
+
+        {path:'/checkout/:id', element:<PrivateRoute><Checkout/></PrivateRoute>,
+        loader: ({params})=>{
+           return fetch(`https://assignment-server-for-vercel.vercel.app/courses/${params.id}`)
+       }},
+
+
         {path:'/reset', element:<ResetPassword/>},
     ]}
 ])

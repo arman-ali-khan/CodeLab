@@ -15,30 +15,27 @@ const Footer = () => {
                     </Link>
                 </div>
                 <div className="col-span-6 text-center md:text-left md:col-span-3">
-                    <p className="pb-1 text-lg font-medium">Page 1</p>
+                  
                     <ul>
                         <li>
-                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Link</a>
+                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Home</a>
                         </li>
                         <li>
-                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Link</a>
+                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Our Teachers</a>
                         </li>
                         <li>
-                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Link</a>
+                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Courses Review</a>
                         </li>
                     </ul>
                 </div>
                 <div className="col-span-6 text-center md:text-left md:col-span-3">
-                    <p className="pb-1 text-lg font-medium">Page 2</p>
+                    
                     <ul>
                         <li>
-                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Link</a>
+                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">About us</a>
                         </li>
                         <li>
-                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Link</a>
-                        </li>
-                        <li>
-                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Link</a>
+                            <a rel="noopener noreferrer" href="#" className="hover:text-violet-600">Contact us</a>
                         </li>
                     </ul>
                 </div>
