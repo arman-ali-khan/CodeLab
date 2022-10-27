@@ -4,13 +4,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../Context/AuthContext';
 
 const Login = () => {
-    const {logIn,loading,setLoading,googleLogin,githubLogin,facebookLogin} = useContext(UserContext)
+    const {logIn,googleLogin,githubLogin,facebookLogin,dark} = useContext(UserContext)
 
-    
+    console.log(dark);
     const navigate = useNavigate()
     const location = useLocation()
     const from = location.state?.from?.pathname || '/';
 	const [error, setError] = useState();
+
    
 
     // onsubmit login
@@ -75,8 +76,8 @@ const Login = () => {
 
 
     return (
-        <div className='flex justify-center'>
-          <div className="w-full max-w-md p-8 space-y-3 border shadow-sm my-12 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+        <div className={`${dark? 'bg-base-100':'bg-[#1e2b47] text-white'} flex justify-center`}>
+          <div className={`${dark? 'bg-base-100':'bg-[#19243b] text-white'} w-full max-w-md p-8 space-y-3 border shadow-sm my-12 rounded-xl`}>
 	<h1 className="text-2xl font-bold text-center">Login</h1>
 	<form noValidate="" onSubmit={handleSubmit} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
 		<div className="space-y-1 text-sm">
@@ -113,8 +114,8 @@ const Login = () => {
 			</svg>
 		</button>
 	</div>
-	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
-		<Link rel="noopener noreferrer" to="/register" className="underline dark:text-gray-100">Sign up</Link>
+	<p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account? 
+		<Link rel="noopener noreferrer" to="/register" className="underline dark:text-gray-100"> Sign up</Link>
 	</p>
 </div>
         </div>

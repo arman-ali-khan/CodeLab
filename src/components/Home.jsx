@@ -71,7 +71,7 @@ const Home = () => {
 				</ul>
 				<button className="px-4 py-2 mt-4 font-semibold uppercase border rounded-lg md:mt-12 sm:py-3 sm:px-8 border-violet-600">Subscribe</button>
 			</div>
-			<div className={`${dark? 'bg-base-100':'bg-[#0f1836] text-white'} relative flex flex-col items-center p-8 border-2 rounded-md border-violet-600 bg-gray-100`}>
+			<div className={`${dark? 'bg-base-100':'bg-[#0f1836] text-white'} relative flex flex-col items-center p-8 border-2 rounded-md border-violet-600`}>
 				<span className="absolute top-0 px-6 pt-1 pb-2 font-medium rounded-b-lg bg-violet-600 text-gray-50">6 Month</span>
 				<p className="flex items-center justify-center my-6 space-x-2 font-bold">
 					<span className="text-lg line-through ">&nbsp;8000৳&nbsp;</span>
@@ -112,7 +112,7 @@ const Home = () => {
 				</ul>
 				<button className="px-8 py-3 mt-12 text-lg font-semibold uppercase rounded bg-violet-600 text-gray-50">Subscribe</button>
 			</div>
-			<div className={`${dark? 'bg-base-100':'bg-[#1c274d] text-white'} relative z-0 flex flex-col items-center p-8 border rounded-md bg-gray-100`}>
+			<div className={`${dark? 'bg-base-100':'bg-[#1c274d] text-white'} relative z-0 flex flex-col items-center p-8 border rounded-md`}>
 				<span className="absolute top-0 px-6 pt-1 pb-2 font-medium rounded-b-lg bg-violet-600 text-gray-50">1 Year</span>
 				<p className="flex items-center justify-center my-6 space-x-2 font-bold">
 					<span className="text-lg line-through">&nbsp;12000৳&nbsp;</span>

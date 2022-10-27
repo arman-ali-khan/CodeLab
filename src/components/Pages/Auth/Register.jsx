@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../Context/AuthContext';
 
 const Register = () => {
-    const {user, createUser,infoUpdate,googleLogin,githubLogin,facebookLogin, loading} = useContext(UserContext)
+    const {user,dark, createUser,infoUpdate,googleLogin,githubLogin,facebookLogin, loading} = useContext(UserContext)
     console.log(user);
 
     if(loading){
@@ -90,8 +90,8 @@ const Register = () => {
 
 
     return (
-        <div className='flex justify-center'>
-        <div className="w-full max-w-md p-8 space-y-3 border shadow-sm my-12 rounded-xl dark:bg-gray-900 dark:text-gray-100">
+        <div className={`${dark? 'bg-base-100':'bg-[#1e2b47] text-white'} flex justify-center`}>
+        <div className={`${dark? 'bg-base-100':'bg-[#18233b] text-white'} w-full max-w-md p-8 space-y-3 border shadow-sm my-12 rounded-xl`}>
   <h1 className="text-2xl font-bold text-center">Register</h1>
   <form noValidate="" onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
       <div className="space-y-1 text-sm">
