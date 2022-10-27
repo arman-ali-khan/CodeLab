@@ -62,9 +62,12 @@ const Navbar = () => {
   <div className="navbar-end">
     {
         user? 
-        <span className='flex justify-center items-center' title={user.displayName}>
-        {user.photoURL ? 
-            <img className='w-10 h-10 rounded-full' src={user.photoURL} alt=''/> 
+        <span className='flex justify-center items-center' >
+        {user?.photoURL ? 
+           <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+             <img className='w-10 h-10 rounded-full' src={user?.photoURL} alt=''/> 
+         </div>
+         
             :
             <p className='text-4xl'><HiUserCircle /></p>}  
         <button onClick={handleLogout} className="btn btn-warning mx-2">Logout</button>

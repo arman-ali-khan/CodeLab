@@ -26,11 +26,9 @@ const Login = () => {
             const user = result?.user;
             navigate(from, {replace: true})
             console.log(user);
-			setError('')
         })
         .catch(error=>{
             console.error('Error:', error);
-            setLoading(false)
 			setError(error.message)
         })
     }
@@ -40,6 +38,7 @@ const Login = () => {
         googleLogin()
         .then(result=>{
             const user = result.user;
+            navigate(from, {replace: true})
             console.log(user);
         })
         .catch(error=>{
@@ -53,6 +52,7 @@ const Login = () => {
         facebookLogin()
         .then(result=>{
             const user = result.user;
+            navigate(from, {replace: true})
             console.log(user);
         })
         .catch(error=>{
@@ -66,6 +66,7 @@ const Login = () => {
         githubLogin()
         .then(result=>{
             const user = result.user;
+            navigate(from, {replace: true})
             console.log(user);
         })
         .catch(error=>{
@@ -82,11 +83,11 @@ const Login = () => {
 	<form noValidate="" onSubmit={handleSubmit} action="" className="space-y-6 ng-untouched ng-pristine ng-valid">
 		<div className="space-y-1 text-sm">
 			<label htmlFor="email" className="block dark:text-gray-400">Email</label>
-			<input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
+			<input type="email" name="email" id="email" placeholder="Email" className="w-full text-black px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
 		</div>
 		<div className="space-y-1 text-sm">
 			<label htmlFor="password" className="block dark:text-gray-400">Password</label>
-			<input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
+			<input type="password" name="password" id="password" placeholder="Password" className="w-full text-black px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
 			<p className='text-error'>{error}</p>
 			<div className="flex justify-end text-xs dark:text-gray-400">
 				<Link to="/reset">Forgot Password?</Link>

@@ -6,7 +6,7 @@ import { UserContext } from '../../../Context/AuthContext';
 
 
 const ResetPassword = () => {
-    const {passwordReset} = useContext(UserContext)
+    const {passwordReset,dark} = useContext(UserContext)
     const [error, setError] = useState('')
 
     const notify = () => toast.success("Reset password send your mail");
@@ -28,9 +28,9 @@ const ResetPassword = () => {
        
     }
     return (
-        <div>
+        <div className={`${dark? 'bg-base-100':'bg-[#1e2b47] text-white'} py-5`}>
               <ToastContainer />
-           <h4 className='text-4xl text-center my-5'> Reset Password </h4>
+           <h4 className='text-4xl text-center py-5'> Reset Password </h4>
            <div className='flex justify-center w-full'>
            <form onSubmit={handleResetPass} className="space-y-1 text-gray-800">
 	<label for="Enter Email" className="hidden">Enter Email</label>

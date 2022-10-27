@@ -4,16 +4,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../../Context/AuthContext';
 
 const Register = () => {
-    const {user,dark, createUser,infoUpdate,googleLogin,githubLogin,facebookLogin, loading} = useContext(UserContext)
+    const {user,dark, createUser,infoUpdate,googleLogin,githubLogin,facebookLogin} = useContext(UserContext)
     console.log(user);
 
-    if(loading){
-        return <div className='flex justify-center my-4'>
-            <div>
-            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div><p>Loading...</p>
-            </div>
-        </div>
-    }
 
 	const [error, setError] = useState();
     const navigate = useNavigate()
@@ -96,19 +89,19 @@ const Register = () => {
   <form noValidate="" onSubmit={handleSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
       <div className="space-y-1 text-sm">
           <label htmlFor="name" className="block dark:text-gray-400">Full Name</label>
-          <input type="text" name="name" id="name" placeholder="Full Name" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+          <input type="text" name="name" id="name" placeholder="Full Name" className="w-full text-black px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
       </div>
       <div className="space-y-1 text-sm">
           <label htmlFor="url" className="block dark:text-gray-400">Photo Url</label>
-          <input type="url" name="url" id="url" placeholder="Photo Url" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
+          <input type="url" name="url" id="url" placeholder="Photo Url" className="w-full text-black px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" />
       </div>
       <div className="space-y-1 text-sm">
           <label htmlFor="email" className="block dark:text-gray-400">Email</label>
-          <input type="email" name="email" id="email" placeholder="Email" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"  required/>
+          <input type="email" name="email" id="email" placeholder="Email" className="w-full text-black px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400"  required/>
       </div>
       <div className="space-y-1 text-sm">
           <label htmlFor="password" className="block dark:text-gray-400">Password</label>
-          <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
+          <input type="password" name="password" id="password" placeholder="Password" className="w-full text-black px-4 py-3 rounded-md dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 focus:dark:border-violet-400" required/>
           <p className='text-error'>{error}</p>
       </div>
       <button type='submit' className="block btn-warning btn w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">Sign UP</button>

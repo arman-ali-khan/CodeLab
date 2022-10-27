@@ -37,7 +37,7 @@ const Details = () => {
 				<div className='w-full flex justify-center'>
         <img src={picture} alt="" className="object-cover w-4/12 h-auto rounded-full " />
         </div>
-		<p ref={ref} id='capture'>{details}</p>
+		<p ref={ref} id='capture' className={`${dark? 'text-black':'text-black'} p-4`}>{details}</p>
 	</div>
    <div className='flex justify-center'><Link to={`/checkout/${id}`} className='text-center mt-5 w-64 btn btn-success'>Get Premium Access</Link></div>
 </div>
