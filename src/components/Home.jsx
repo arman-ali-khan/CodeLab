@@ -1,13 +1,15 @@
 import Lottie from "lottie-react";
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import programming from "../assets/programming.json";
+import { UserContext } from "../Context/AuthContext";
 
 
 const Home = () => {
+	const {dark, setDark} = useContext(UserContext)
     return (
         <div>
-           <section className="dark:bg-gray-800 dark:text-gray-100">
+           <section className={`${dark? 'bg-base-100':'bg-[#1e2b47] text-white'}`}>
 	<div className="container flex-col-reverse flex md:flex-col  justify-center mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
 		<div className="flex items-center justify-center my-24  lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
         <Lottie animationData={programming} loop={false} />
@@ -28,17 +30,17 @@ const Home = () => {
 		</div>
 	</div>
 </section>
-<section className="py-6 bg-gray-100 text-gray-900">
+<section className={`${dark? 'bg-base-100':'bg-[#24325e] text-white'}`}>
 	<div className="container mx-auto p-4 sm:p-10">
 		<div className="mb-16 space-y-4 text-center">
 			<h1 className="text-4xl font-semibold leading-tight">Pricing</h1>
 			<p className="px-4 sm:px-8 lg:px-24">There are 3 types available to apply in our batch</p>
 		</div>
 		<div className="grid max-w-md grid-cols-1 gap-6 mx-auto auto-rows-fr lg:max-w-full lg:gap-2 xl:gap-6 lg:grid-cols-3">
-			<div className="relative z-0 flex flex-col items-center p-8 border rounded-md">
+			<div className={`${dark? 'bg-base-100':'bg-[#24325e] text-white'}  relative z-0 flex flex-col items-center p-8 border rounded-md`}>
 				<span className="absolute top-0 px-6 pt-1 pb-2 font-medium rounded-b-lg bg-violet-600 text-gray-50">3 Month</span>
 				<p className="flex items-center justify-center my-6 space-x-2 font-bold">
-					<span className="text-lg line-through text-gray-700">&nbsp;5000৳&nbsp;</span>
+					<span className="text-lg line-through ">&nbsp;5000৳&nbsp;</span>
 					<span className="pb-2 text-4xl">3999৳</span>
 				</p>
 				<ul className="flex-1 space-y-2">
@@ -69,10 +71,10 @@ const Home = () => {
 				</ul>
 				<button className="px-4 py-2 mt-4 font-semibold uppercase border rounded-lg md:mt-12 sm:py-3 sm:px-8 border-violet-600">Subscribe</button>
 			</div>
-			<div className="relative flex flex-col items-center p-8 border-2 rounded-md border-violet-600 bg-gray-100">
+			<div className={`${dark? 'bg-base-100':'bg-[#0f1836] text-white'} relative flex flex-col items-center p-8 border-2 rounded-md border-violet-600 bg-gray-100`}>
 				<span className="absolute top-0 px-6 pt-1 pb-2 font-medium rounded-b-lg bg-violet-600 text-gray-50">6 Month</span>
 				<p className="flex items-center justify-center my-6 space-x-2 font-bold">
-					<span className="text-lg line-through text-gray-700">&nbsp;8000৳&nbsp;</span>
+					<span className="text-lg line-through ">&nbsp;8000৳&nbsp;</span>
 					<span className="pb-2 text-4xl">5000৳</span>
 				</p>
 				<ul className="flex-1 space-y-2">
@@ -110,10 +112,10 @@ const Home = () => {
 				</ul>
 				<button className="px-8 py-3 mt-12 text-lg font-semibold uppercase rounded bg-violet-600 text-gray-50">Subscribe</button>
 			</div>
-			<div className="relative z-0 flex flex-col items-center p-8 border rounded-md bg-gray-100">
+			<div className={`${dark? 'bg-base-100':'bg-[#1c274d] text-white'} relative z-0 flex flex-col items-center p-8 border rounded-md bg-gray-100`}>
 				<span className="absolute top-0 px-6 pt-1 pb-2 font-medium rounded-b-lg bg-violet-600 text-gray-50">1 Year</span>
 				<p className="flex items-center justify-center my-6 space-x-2 font-bold">
-					<span className="text-lg line-through text-gray-700">&nbsp;12000৳&nbsp;</span>
+					<span className="text-lg line-through">&nbsp;12000৳&nbsp;</span>
 					<span className="pb-2 text-4xl">10500৳</span>
 				</p>
 				<ul className="flex-1 space-y-2">

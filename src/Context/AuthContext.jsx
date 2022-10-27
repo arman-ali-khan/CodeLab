@@ -8,6 +8,7 @@ export const UserContext = createContext()
 const AuthContext = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [dark, setDark] = useState(true)
 
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
@@ -62,7 +63,7 @@ const AuthContext = ({children}) => {
         return ()=> unsubscribe()
     },[])
 
-    const userInfo = {user,createUser,passwordReset,setLoading,infoUpdate,logOut,logIn,googleLogin,loading,facebookLogin,githubLogin}
+    const userInfo = {user,createUser,setDark,dark,passwordReset,setLoading,infoUpdate,logOut,logIn,googleLogin,loading,facebookLogin,githubLogin}
     return (
         <UserContext.Provider value={userInfo}>
             {children}

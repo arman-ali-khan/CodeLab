@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HiOutlineDownload } from 'react-icons/hi';
 import { Link, useLoaderData } from 'react-router-dom';
 import Pdf from "react-to-pdf";
+import { UserContext } from '../../Context/AuthContext';
 
 
 
 const Details = () => {
     const courseData = useLoaderData();
+    const {dark} = useContext(UserContext)
     const {name, picture, details,id} = courseData;
   console.log(courseData);
     const ref = React.createRef();
 
     return (
-    <div className='md:flex justify-center mx-auto w-full'>
+    <div className={`${dark? 'bg-base-100':'bg-[#1e2b47] text-white'} md:flex justify-center mx-auto w-full py-6`}>
    
  
             <div className="md:w-3/4 flex flex-col p-6 mx-auto divide-y rounded-md border divide-gray-700">

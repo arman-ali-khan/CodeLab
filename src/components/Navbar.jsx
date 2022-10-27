@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { UserContext } from '../Context/AuthContext';
 const Navbar = () => {
-    const {user,logOut} = useContext(UserContext)
+    const {user,logOut,dark,setDark} = useContext(UserContext)
     const [night, setNight] = useState(false)
 
     const handleLogout =()=>{
@@ -32,9 +32,10 @@ const Navbar = () => {
 
     const handleNightMode = ()=>{
         setNight(!night)
+        setDark(!dark)
     }
     return (
-        <div className="navbar bg-base-100 shadow-md">
+        <div className={`navbar shadow-lg ${dark? 'bg-base-200 ':'bg-[#19223c] text-white'} `}>
             <ToastContainer/>
   <div className="navbar-start">
     <div className="dropdown">

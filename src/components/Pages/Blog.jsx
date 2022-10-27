@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../Context/AuthContext';
 
 const Blog = () => {
+	const {dark} = useContext(UserContext)
     return (
         <div>
-           <section className="bg-gray-100 text-gray-800">
+           <section className={`${dark? 'bg-base-100':'bg-[#1e2b47] text-white'}`}>
 	<div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
 		<h2 className="mb-12 text-3xl font-bold leading-none text-center sm:text-5xl">Questions and Answer</h2>
 		<div className="flex flex-col divide-y sm:px-8 lg:px-12 xl:px-32 divide-gray-300">
