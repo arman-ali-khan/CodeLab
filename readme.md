@@ -4,8 +4,6 @@
 
 ## [Live Demo](https://programming-language-courses.web.app)
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
-
 ### Features and Libraries
 
 - This site is built with React JS
