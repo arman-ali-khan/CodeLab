@@ -64,12 +64,16 @@ const Navbar = () => {
         user? 
         <span className='flex justify-center items-center' >
         {user?.photoURL ? 
+           <Link to='/profile'>
            <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
-             <img className='w-10 h-10 rounded-full' src={user?.photoURL} alt=''/> 
-         </div>
+             <img className='w-10 h-10 rounded-full' src={user?.photoURL} alt=''/> </div>
+         </Link>
          
             :
-            <p className='text-4xl'><HiUserCircle /></p>}  
+            <Link to='/profile' className='text-4xl'><HiUserCircle /></Link>
+          }  
+
+
         <button onClick={handleLogout} className="btn btn-warning mx-2">Logout</button>
         </span >
             : 
